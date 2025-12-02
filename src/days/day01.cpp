@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 
+#include "days/day01.hpp"
 #include "util.hpp"
 
 using i32 = int32_t;
