@@ -46,7 +46,6 @@ i32 part1(const std::vector<i32>& input) {
 	return points;
 }
 
-/// Brute force
 i32 part2(const std::vector<i32>& input) {
 	i32 points = 0;
 
@@ -54,7 +53,7 @@ i32 part2(const std::vector<i32>& input) {
 	for (const auto shift : input) {
 		if (shift < 0) {
 			for (i32 i = shift; i < 0; i++) {
-				dial = dial - 1;
+				dial--;
 				if (dial < 0) {
 					dial = 99;
 				} else if (dial == 0) {
@@ -63,7 +62,10 @@ i32 part2(const std::vector<i32>& input) {
 			}
 		} else {
 			for (i32 i = 0; i < shift; i++) {
-				dial = (dial + 1) % 100;
+				dial++;
+				if (dial > 99) {
+					dial = 0;
+				}
 				if (dial == 0) {
 					points++;
 				}
